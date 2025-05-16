@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SpeedGear</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"/>
+  <style>
+    /* Estilo para el fade */
+    .img-slide {
+      transition: opacity 0.7s ease;
+      opacity: 1;
+      display: block;
+      width: 100%;
+      border-radius: 10px;
+    }
+    .fade-out {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SpeedGear</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inici</a></li>
+        <li><a href="qui-som.html">Qui Som</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Troba el teu cotxe ideal avui mateix</h2>
+  </section>
+
+  <section class="cotxes">
+    <article>
+      <div class="imatge-cotxe">
+        <img src="img/cotxe1.jpg.png" alt="Ford Mustang" class="img-slide">
+      </div>
+      <h3>Ford Mustang 2025</h3>
+      <p>Preu: 89.950,00 €</p>
+    </article>
+
+    <article>
+      <div class="imatge-cotxe">
+        <img src="img/FordMustang.png" alt="Volkswagen Golf" class="img-slide">
+      </div>
+      <h3>Ford Mustang 2025</h3>
+      <p>Preu: 125.999,00 € - 25.000 km</p>
+    </article>
+  </section>
+
+  <footer>
+    <p><strong>© 2025 SpeedGear. Tots els drets reservats.</strong></p>
+  </footer>
+
+  <script>
+    console.log("Benvingut/da a AutoRàpid!");
+
+    const galeries = [
+      [
+        'img/cotxe1.jpg.png', 'img/cotxe2.jpg.png', 'img/cotxe3.png',
+        'img/cotxe4.png', 'img/cotxe6.png',
+        'img/cotxe7.png',
+      ],
+      [
+        'img/FordMustang.png', 'img/Fordmustang.png', 'img/FordMustang2.png',
+        'img/FordMustang3.png', 'img/FordMustang4.png', 'img/FordMustang5.png'
+      ]
+    ];
+
+    const contenidors = document.querySelectorAll('.imatge-cotxe');
+
+    contenidors.forEach((contenidor, i) => {
+      let index = 0;
+      const img = contenidor.querySelector('.img-slide');
+      
+      setInterval(() => {
+        // Efecto fade out
+        img.classList.add('fade-out');
+
+        setTimeout(() => {
+          // Cambiar imagen después del fade out
+          index = (index + 1) % galeries[i].length;
+          img.src = galeries[i][index];
+
+          // Efecto fade in
+          img.classList.remove('fade-out');
+        }, 700); // Duración del fade out debe coincidir con CSS (0.7s)
+      }, 3000); // Cada 3 segundos
+    });
+  </script>
+</body>
+</html>
