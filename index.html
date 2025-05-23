@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="styles.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"/>
   <style>
-    /* Estilo para el fade */
     .img-slide {
       transition: opacity 0.7s ease;
       opacity: 1;
@@ -17,6 +16,36 @@
     }
     .fade-out {
       opacity: 0;
+    }
+
+    /* Flechas slider */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 0.3rem 0.6rem;
+      font-size: 1.2rem;
+      display: none;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    /* Para que .slider-bolide tenga posición relativa */
+    .slider-bolide {
+      position: relative;
     }
   </style>
 </head>
@@ -37,6 +66,7 @@
   </section>
 
   <section class="cotxes">
+    <h2>Ford</h2>
     <article>
       <div class="imatge-cotxe">
         <img src="img/cotxe1.jpg.png" alt="Ford Mustang" class="img-slide">
@@ -47,10 +77,75 @@
 
     <article>
       <div class="imatge-cotxe">
-        <img src="img/FordMustang.png" alt="Volkswagen Golf" class="img-slide">
+        <img src="img/FordMustang.png" alt="Ford Mustang Edició Especial" class="img-slide">
       </div>
       <h3>Ford Mustang 2025</h3>
       <p>Preu: 125.999,00 € - 25.000 km</p>
+    </article>
+
+    <article>
+      <div class="imatge-cotxe">
+        <img src="img/azul1.png" alt="Ford Mustang Blau" class="img-slide">
+      </div>
+      <h3>Ford Mustang Blau</h3>
+      <p>Preu: 90.000,00 €</p>
+    </article>
+  </section>
+
+  <section class="cotxes">
+    <h2>Bugatti</h2>
+    <article>
+      <div class="imatge-cotxe">
+        <img src="img/buatti2.png" alt="Bugatti Chiron" class="img-slide">
+      </div>
+      <h3>Bugatti Chiron</h3>
+      <p>Preu: 2.400.000,00 €</p>
+    </article>
+
+    <article>
+      <div class="imatge-cotxe">
+        <img src="img/bugatti2.jpg" alt="Bugatti Veyron" class="img-slide">
+      </div>
+      <h3>Bugatti Veyron</h3>
+      <p>Preu: 1.950.000,00 €</p>
+    </article>
+
+    <article>
+      <!-- Slider Bugatti Bolide -->
+      <div class="imatge-cotxe slider-bolide">
+        <button class="arrow left">‹</button>
+        <img src="img/bugattiB.png" alt="Bugatti Bolide" class="img-slide">
+        <button class="arrow right">›</button>
+      </div>
+      <h3>Bugatti Bolide</h3>
+      <p>Preu: 4.000.000,00 €</p>
+    </article>
+  </section>
+
+  <section class="cotxes">
+    <h2>Lamborghini</h2>
+    <article>
+      <div class="imatge-cotxe">
+        <img src="img/lamborghini1.jpg" alt="Lamborghini Aventador" class="img-slide">
+      </div>
+      <h3>Lamborghini Aventador</h3>
+      <p>Preu: 420.000,00 €</p>
+    </article>
+
+    <article>
+      <div class="imatge-cotxe">
+        <img src="img/lamborghini2.jpg" alt="Lamborghini Huracán" class="img-slide">
+      </div>
+      <h3>Lamborghini Huracán</h3>
+      <p>Preu: 290.000,00 €</p>
+    </article>
+
+    <article>
+      <div class="imatge-cotxe">
+        <img src="img/lamborghini3.jpg" alt="Lamborghini Urus" class="img-slide">
+      </div>
+      <h3>Lamborghini Urus</h3>
+      <p>Preu: 250.000,00 €</p>
     </article>
   </section>
 
@@ -59,39 +154,62 @@
   </footer>
 
   <script>
-    console.log("Benvingut/da a AutoRàpid!");
-
-    const galeries = [
-      [
-        'img/cotxe1.jpg.png', 'img/cotxe2.jpg.png', 'img/cotxe3.png',
-        'img/cotxe4.png', 'img/cotxe6.png',
-        'img/cotxe7.png',
-      ],
-      [
-        'img/FordMustang.png', 'img/Fordmustang.png', 'img/FordMustang2.png',
-        'img/FordMustang3.png', 'img/FordMustang4.png', 'img/FordMustang5.png'
-      ]
+    // Slider Bugatti Bolide
+    const bolideImages = [
+      'img/bugattiB.png',
+      'img/bugattiB2.png',
+      'img/bugattiB3.png',
+      'img/bugattiB4.png'
     ];
 
-    const contenidors = document.querySelectorAll('.imatge-cotxe');
+    const bolideSlider = document.querySelector('.slider-bolide');
+    const bolideImg = bolideSlider.querySelector('img');
+    const leftBtn = bolideSlider.querySelector('.arrow.left');
+    const rightBtn = bolideSlider.querySelector('.arrow.right');
 
-    contenidors.forEach((contenidor, i) => {
-      let index = 0;
-      const img = contenidor.querySelector('.img-slide');
-      
-      setInterval(() => {
-        // Efecto fade out
-        img.classList.add('fade-out');
+    let bolideIndex = 0;
 
-        setTimeout(() => {
-          // Cambiar imagen después del fade out
-          index = (index + 1) % galeries[i].length;
-          img.src = galeries[i][index];
+    function mostrarFletxesMostrar() {
+      leftBtn.style.display = 'block';
+      rightBtn.style.display = 'block';
+    }
 
-          // Efecto fade in
-          img.classList.remove('fade-out');
-        }, 700); // Duración del fade out debe coincidir con CSS (0.7s)
-      }, 3000); // Cada 3 segundos
+    function mostrarFletxesOcultar() {
+      leftBtn.style.display = 'none';
+      rightBtn.style.display = 'none';
+    }
+
+    function cambiarBolideImagen(direccion) {
+      bolideIndex = (bolideIndex + direccion + bolideImages.length) % bolideImages.length;
+      bolideImg.classList.add('fade-out');
+      setTimeout(() => {
+        bolideImg.src = bolideImages[bolideIndex];
+        bolideImg.classList.remove('fade-out');
+      }, 500);
+    }
+
+    let bolideInterval;
+
+    bolideSlider.addEventListener('mouseenter', () => {
+      mostrarFletxesMostrar();
+      bolideInterval = setInterval(() => {
+        cambiarBolideImagen(1);
+      }, 3000);
+    });
+
+    bolideSlider.addEventListener('mouseleave', () => {
+      mostrarFletxesOcultar();
+      clearInterval(bolideInterval);
+      bolideIndex = 0;
+      bolideImg.src = bolideImages[bolideIndex];
+    });
+
+    leftBtn.addEventListener('click', () => {
+      cambiarBolideImagen(-1);
+    });
+
+    rightBtn.addEventListener('click', () => {
+      cambiarBolideImagen(1);
     });
   </script>
 </body>

@@ -1,58 +1,64 @@
-// Missatge inicial a la consola
-console.log("Benvingut/da a AutoRàpid!");
+console.log("Benvingut/da a SpeedGear!");
 
-// Canvi de color al passar el ratolí per sobre dels enllaços
-document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("mouseover", () => {
-    link.style.opacity = "0.7";
-  });
-  link.addEventListener("mouseout", () => {
-    link.style.opacity = "1";
-  });
-});
-
-// Opcional: menú hamburguesa per a mòbils
-const menuBtn = document.getElementById("menu-btn");
-const navLinks = document.querySelector("nav ul");
-
-if (menuBtn) {
-  menuBtn.addEventListener("click", () => {
-    navLinks.classList.toggle("visible");
-  });
-}
-
-// Alert quan s’envia el formulari de contacte
-const form = document.querySelector("form");
-
-if (form) {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault(); // Evita l'enviament real
-    alert("Gràcies per contactar amb nosaltres!");
-    form.reset();
-  });
-}
-
-// 🔁 Canvi d’imatges automàtic cada 3 segons per cada cotxe
 const galeries = [
   [
     'img/cotxe1.jpg.png', 'img/cotxe2.jpg.png', 'img/cotxe3.png',
-    'img/cotxe4.png', 'img/cotxe6.png',
-    'img/cotxe7.png',
+    'img/cotxe4.png', 'img/cotxe6.png', 'img/cotxe7.png'
   ],
   [
     'img/FordMustang.png', 'img/Fordmustang.png', 'img/FordMustang2.png',
     'img/FordMustang3.png', 'img/FordMustang4.png', 'img/FordMustang5.png'
+  ],
+  [
+    'img/azul1.png', 'img/azul2.png', 'img/azul3.png',
+    'img/azul4.png', 'img/azul5.png', 'img/azul6.png'
+  ],
+  [
+    'img/bugatti3.png', 'img/bugatti4.png', 'img/bugatti5.png',
+    'img/bugatti6.png', 'img/bugatti7.png'
+  ],
+  [
+    'img/lamborghini1.jpg', 'img/lamborghini2.jpg', 'img/lamborghini3.jpg',
+    'img/lamborghini4.jpg', 'img/lamborghini5.jpg'
+  ],
+  [
+    'img/lamborghini2.jpg', 'img/lamborghini3.jpg', 'img/lamborghini1.jpg'
+  ],
+  [
+    'img/lamborghini3.jpg', 'img/lamborghini1.jpg', 'img/lamborghini2.jpg'
   ]
 ];
 
-// Seleccionem tots els contenidors d'imatges
 const contenidors = document.querySelectorAll('.imatge-cotxe');
 
 contenidors.forEach((contenidor, i) => {
   let index = 0;
-  setInterval(() => {
-    index = (index + 1) % galeries[i].length;
-    const img = contenidor.querySelector('.img-slide');
-    if (img) img.src = galeries[i][index];
-  }, 3000); // Cada 3 segons
+  let intervalId = null;
+  const img = contenidor.querySelector('.img-slide');
+  const originalSrc = img.src;
+
+  const showNextImage = () => {
+    img.classList.add('fade-out');
+    setTimeout(() => {
+      index = (index + 1) % galeries[i].length;
+      img.src = galeries[i][index];
+      img.classList.remove('fade-out');
+    }, 700);
+  };
+
+  const startSlideshow = () => {
+    if (!galeries[i] || intervalId) return;
+
+    showNextImage(); // Cambia imagen inmediatamente
+    intervalId = setInterval(showNextImage, 3000);
+  };
+
+  const stopSlideshow = () => {
+    clearInterval(intervalId);
+    intervalId = null;
+    img.src = originalSrc; // Opcional: volver a imagen original
+  };
+
+  contenidor.addEventListener('mouseenter', startSlideshow);
+  contenidor.addEventListener('mouseleave', stopSlideshow);
 });

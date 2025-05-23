@@ -1,13 +1,23 @@
+/* ====== GLOBAL ====== */
 body {
   font-family: 'Rubik', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f4f4f4;
-  color: #222;
+  background: linear-gradient(
+    to bottom,
+    #1f103f 0%,
+    #2c1a57 25%,
+    #3a2c6a 50%,
+    #4c3b7f 75%,
+    #5a4a94 100%
+  );
+  background-attachment: fixed;
+  color: #f0f0f0;
 }
 
+/* ====== HEADER ====== */
 header {
-  background: #111;
+  background: rgba(15, 10, 40, 0.95);
   color: white;
   padding: 1rem;
   text-align: center;
@@ -31,38 +41,87 @@ nav a {
   transition: opacity 0.3s ease;
 }
 
+nav a:hover {
+  opacity: 0.7;
+}
+
+/* ====== HERO ====== */
 .hero {
-  background: #e2e2e2;
+  background: transparent;
+  color: #fff;
   text-align: center;
   padding: 2rem;
 }
 
-.cotxes {
+/* ====== SECCIONS DE COTXES ====== */
+section.cotxes {
+  padding: 4rem 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  padding: 2rem;
+  gap: 3rem;
+  position: relative;
 }
 
-article {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  padding: 1rem;
-  width: 300px;
+section.cotxes h2 {
+  width: 100%;
   text-align: center;
+  color: #ff6ec4;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #ff6ec4;
+  padding-bottom: 0.5rem;
 }
 
+/* ====== COTXE (ARTICLE) ====== */
+article {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  width: 350px;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+article:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ====== IMATGE COTXE ====== */
 .imatge-cotxe img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: opacity 0.7s ease;
+}
+
+.img-slide {
+  opacity: 1;
+  display: block;
   width: 100%;
   border-radius: 10px;
 }
 
+.fade-out {
+  opacity: 0;
+}
+
+/* ====== FOOTER ====== */
 footer {
-  background: #111;
+  background: rgba(15, 10, 40, 0.95);
   color: white;
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  article {
+    width: 90%;
+  }
 }

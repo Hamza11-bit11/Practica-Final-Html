@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AutoRàpid - Contacte</title>
+  <title>SpeedGear - Contacte</title>
   <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>AutoRàpid</h1>
+    <h1>SpeedGear</h1>
     <nav>
       <ul>
         <li><a href="index.html">Inici</a></li>
@@ -18,24 +19,26 @@
     </nav>
   </header>
 
-  <section class="formulari">
-    <h2>Contacta amb nosaltres</h2>
-    <form>
-      <label>Nom:
-        <input type="text" name="nom" required>
-      </label>
-      <label>Email:
-        <input type="email" name="email" required>
-      </label>
-      <label>Missatge:
-        <textarea name="missatge" required></textarea>
-      </label>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+  <main>
+    <section class="formulari">
+      <h2>Contacta amb nosaltres</h2>
+      <form>
+        <label for="nom">Nom:
+          <input type="text" name="nom" id="nom" required>
+        </label>
+        <label for="email">Email:
+          <input type="email" name="email" id="email" required>
+        </label>
+        <label for="missatge">Missatge:
+          <textarea name="missatge" id="missatge" required></textarea>
+        </label>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 AutoRàpid</p>
+    <p><strong>© 2025 SpeedGear. Tots els drets reservats.</strong></p>
   </footer>
 </body>
 </html>
