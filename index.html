@@ -18,33 +18,8 @@
       opacity: 0;
     }
 
-    /* Flechas slider */
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.5);
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      padding: 0.3rem 0.6rem;
-      font-size: 1.2rem;
-      display: none;
-      user-select: none;
-      z-index: 10;
-    }
-
-    .arrow.left {
-      left: 10px;
-    }
-
-    .arrow.right {
-      right: 10px;
-    }
-
-    /* Para que .slider-bolide tenga posición relativa */
-    .slider-bolide {
+    /* Para que .slider-bolide y slider-mistral tengan posición relativa */
+    .slider-bolide, .slider-mistral {
       position: relative;
     }
   </style>
@@ -96,26 +71,25 @@
     <h2>Bugatti</h2>
     <article>
       <div class="imatge-cotxe">
-        <img src="img/buatti2.png" alt="Bugatti Chiron" class="img-slide">
+        <img src="img/bugatti3.png" alt="Bugatti Chiron" class="img-slide">
       </div>
       <h3>Bugatti Chiron</h3>
       <p>Preu: 2.400.000,00 €</p>
     </article>
 
     <article>
-      <div class="imatge-cotxe">
-        <img src="img/bugatti2.jpg" alt="Bugatti Veyron" class="img-slide">
+      <!-- Slider Bugatti Mistral -->
+      <div class="imatge-cotxe slider-mistral">
+        <img src="img/bugattiN.png" alt="Bugatti Mistral" class="img-slide">
       </div>
-      <h3>Bugatti Veyron</h3>
+      <h3>Bugatti Mistral</h3>
       <p>Preu: 1.950.000,00 €</p>
     </article>
 
     <article>
       <!-- Slider Bugatti Bolide -->
       <div class="imatge-cotxe slider-bolide">
-        <button class="arrow left">‹</button>
         <img src="img/bugattiB.png" alt="Bugatti Bolide" class="img-slide">
-        <button class="arrow right">›</button>
       </div>
       <h3>Bugatti Bolide</h3>
       <p>Preu: 4.000.000,00 €</p>
@@ -126,7 +100,7 @@
     <h2>Lamborghini</h2>
     <article>
       <div class="imatge-cotxe">
-        <img src="img/lamborghini1.jpg" alt="Lamborghini Aventador" class="img-slide">
+        <img src="img/lamboA.jpg" alt="Lamborghini Aventador" class="img-slide">
       </div>
       <h3>Lamborghini Aventador</h3>
       <p>Preu: 420.000,00 €</p>
@@ -134,7 +108,7 @@
 
     <article>
       <div class="imatge-cotxe">
-        <img src="img/lamborghini2.jpg" alt="Lamborghini Huracán" class="img-slide">
+        <img src="img/lamboB.jpeg" alt="Lamborghini Huracán" class="img-slide">
       </div>
       <h3>Lamborghini Huracán</h3>
       <p>Preu: 290.000,00 €</p>
@@ -142,7 +116,7 @@
 
     <article>
       <div class="imatge-cotxe">
-        <img src="img/lamborghini3.jpg" alt="Lamborghini Urus" class="img-slide">
+        <img src="img/lamboU.jpg" alt="Lamborghini Urus" class="img-slide">
       </div>
       <h3>Lamborghini Urus</h3>
       <p>Preu: 250.000,00 €</p>
@@ -153,64 +127,6 @@
     <p><strong>© 2025 SpeedGear. Tots els drets reservats.</strong></p>
   </footer>
 
-  <script>
-    // Slider Bugatti Bolide
-    const bolideImages = [
-      'img/bugattiB.png',
-      'img/bugattiB2.png',
-      'img/bugattiB3.png',
-      'img/bugattiB4.png'
-    ];
-
-    const bolideSlider = document.querySelector('.slider-bolide');
-    const bolideImg = bolideSlider.querySelector('img');
-    const leftBtn = bolideSlider.querySelector('.arrow.left');
-    const rightBtn = bolideSlider.querySelector('.arrow.right');
-
-    let bolideIndex = 0;
-
-    function mostrarFletxesMostrar() {
-      leftBtn.style.display = 'block';
-      rightBtn.style.display = 'block';
-    }
-
-    function mostrarFletxesOcultar() {
-      leftBtn.style.display = 'none';
-      rightBtn.style.display = 'none';
-    }
-
-    function cambiarBolideImagen(direccion) {
-      bolideIndex = (bolideIndex + direccion + bolideImages.length) % bolideImages.length;
-      bolideImg.classList.add('fade-out');
-      setTimeout(() => {
-        bolideImg.src = bolideImages[bolideIndex];
-        bolideImg.classList.remove('fade-out');
-      }, 500);
-    }
-
-    let bolideInterval;
-
-    bolideSlider.addEventListener('mouseenter', () => {
-      mostrarFletxesMostrar();
-      bolideInterval = setInterval(() => {
-        cambiarBolideImagen(1);
-      }, 3000);
-    });
-
-    bolideSlider.addEventListener('mouseleave', () => {
-      mostrarFletxesOcultar();
-      clearInterval(bolideInterval);
-      bolideIndex = 0;
-      bolideImg.src = bolideImages[bolideIndex];
-    });
-
-    leftBtn.addEventListener('click', () => {
-      cambiarBolideImagen(-1);
-    });
-
-    rightBtn.addEventListener('click', () => {
-      cambiarBolideImagen(1);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
