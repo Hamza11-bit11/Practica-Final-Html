@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bugatti Bolide - SpeedGear</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"/>
+  <style>
+    .cotxe-detall {
+      max-width: 1000px;
+      margin: 3rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+      color: black; /* texto negro */
+    }
+
+    .img-slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .img-slider-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 10;
+    }
+
+    .arrow:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    .cotxe-detall h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cotxe-detall p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .btn-retorn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: #6a1b9a;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-retorn:hover {
+      background: #4a1371;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SpeedGear</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inici</a></li>
+        <li><a href="qui-som.html">Qui Som</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cotxe-detall">
+    <div class="img-slider-container">
+      <button class="arrow left" onclick="canviarImatge(-1)">‹</button>
+      <img id="imatgeCotxe" src="img/bugattiB.png" alt="Bugatti Chiron">
+      <button class="arrow right" onclick="canviarImatge(1)">›</button>
+    </div>
+
+    <h2> Bugatti Bolide – La furia de la velocidad en su máxima expresión</h2>
+    <p><strong>Preu:</strong> 2.400.000,00 €</p>
+    <p>
+     El Bugatti Bolide és una autèntica bèstia de l'automoció, creada per oferir el màxim rendiment en el circuit i en qualsevol condició. Amb un disseny radicalment esportiu i agressiu, el Bolide és el cotxe que Bugatti ha creat per aquells que busquen no només velocitat extrema, sinó també una sensació de conducció única. Amb una estructura extremadament lleugera, aquest supercotxe és un dels més ràpids de la marca.
+
+El Bugatti Bolide compta amb un motor W16 de 8.0L que desenvolupa fins a 1.850 CV, una potència brutal que permet una acceleració de 0 a 100 km/h en menys de 2.2 segons. El seu motor, combinat amb una aerodinàmica d’avantguarda, permet que el Bolide assoleixi velocitats increïbles, amb un control absolut en totes les condicions de conducció.
+
+L’interior del Bolide és tan exclusiu com el seu exterior, amb materials de primera qualitat i una estètica funcional que busca optimitzar l’experiència de conducció, eliminant qualsevol distracció i mantenint al conductor totalment connectat amb la màquina.
+
+Aquest supercotxe és una declaració d'intencions per part de Bugatti: combinar l'art del disseny amb la màxima potència i rendiment. El Bolide no és només un cotxe, és un vehicle creat per a aquells que volen dominar el món de les velocitats més extremes.
+
+🔧 Característiques destacades:
+
+    Motor W16 de 8.0L amb 1.850 CV
+
+    Aceleració de 0 a 100 km/h en menys de 2.2 segons
+
+    Velocitat màxima superior a 500 km/h
+
+    Disseny extremadament lleuger i aerodinàmic amb fibra de carboni
+
+    Sistema de suspensió i frens de rendiment màxim per a circuits
+
+    Interior minimalista amb un enfocament en la funcionalitat i el control
+
+El Bugatti Bolide és la fusió perfecta entre potència, disseny i velocitat. Bugatti Bolide – Quan la velocitat i la passió es converteixen en una obra mestra.
+    </p>
+
+    <a class="btn-retorn" href="index.html">← Tornar a l'inici</a>
+  </section>
+
+  <footer>
+    <p><strong>© 2025 SpeedGear. Tots els drets reservats.</strong></p>
+  </footer>
+
+  <script>
+    const imatges = [
+      'img/bugattiB1.png',
+      'img/bugattiB2.png',
+      'img/bugattiB3.png',
+      'img/bugattiB4.png',
+      
+       
+      ];
+    let index = 0;
+    function canviarImatge(direccio) {
+      index = (index + direccio + imatges.length) % imatges.length;
+      document.getElementById('imatgeCotxe').src = imatges[index];
+    }
+  </script>
+</body>
+</html>

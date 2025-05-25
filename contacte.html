@@ -5,9 +5,125 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SpeedGear - Contacte</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Rubik', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      font-family: 'Rubik', sans-serif;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 1rem 0;
+    }
+
+    nav li {
+      margin: 0 1.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #e2e2e2;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #111;
+    }
+
+    .formulari {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    label {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #444;
+    }
+
+    input, textarea {
+      font-size: 1rem;
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 100%;
+      transition: border 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      border-color: #6a1b9a;
+    }
+
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #6a1b9a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 200px;
+      margin-top: 1rem;
+    }
+
+    button:hover {
+      background-color: #4a1371;
+    }
+
+    footer {
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    footer p {
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
+
   <header>
     <h1>SpeedGear</h1>
     <nav>
@@ -20,25 +136,27 @@
   </header>
 
   <main>
-    <section class="formulari">
-      <h2>Contacta amb nosaltres</h2>
+    <h2>Contacta amb nosaltres</h2>
+    <div class="formulari">
       <form>
-        <label for="nom">Nom:
-          <input type="text" name="nom" id="nom" required>
-        </label>
-        <label for="email">Email:
-          <input type="email" name="email" id="email" required>
-        </label>
-        <label for="missatge">Missatge:
-          <textarea name="missatge" id="missatge" required></textarea>
-        </label>
+        <label for="nom">Nom:</label>
+        <input type="text" name="nom" id="nom" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+
+        <label for="missatge">Missatge:</label>
+        <textarea name="missatge" id="missatge" rows="6" required></textarea>
+
         <button type="submit">Enviar</button>
       </form>
-    </section>
+    </div>
   </main>
 
   <footer>
-    <p><strong>© 2025 SpeedGear. Tots els drets reservats.</strong></p>
+    <p>&copy; 2025 SpeedGear. Tots els drets reservats.</p>
   </footer>
+
 </body>
 </html>
+

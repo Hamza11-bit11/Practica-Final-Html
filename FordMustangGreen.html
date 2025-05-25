@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ford Mustang Verd - SpeedGear</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"/>
+  <style>
+    .cotxe-detall {
+      max-width: 1000px;
+      margin: 3rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+      color: black; /* texto negro */
+    }
+
+    .img-slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .img-slider-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 10;
+    }
+
+    .arrow:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    .cotxe-detall h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cotxe-detall p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .btn-retorn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: #6a1b9a;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-retorn:hover {
+      background: #4a1371;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SpeedGear</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inici</a></li>
+        <li><a href="qui-som.html">Qui Som</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cotxe-detall">
+    <div class="img-slider-container">
+      <button class="arrow left" onclick="canviarImatge(-1)">‹</button>
+      <img id="imatgeCotxe" src="img/FordMustang.png" alt="FordMustang">
+      <button class="arrow right" onclick="canviarImatge(1)">›</button>
+    </div>
+
+    <h2>💚 Ford Mustang 2025 Verd – Rebel·lia amb caràcter propi </h2>
+    <p><strong>Preu:</strong> 125.999,00 €</p>
+    <p>
+     
+
+El Ford Mustang 2025 en color verd no només és un cotxe, és una declaració de personalitat. Amb el seu to verd vibrant i sofisticat, aquesta edició combina la potència clàssica del Mustang amb una aparença fresca i atrevida que destaca a cada semàfor.
+
+Manté el seu impressionant motor V8 5.0L amb més de 480 CV, perfecte per als qui busquen una conducció intensa i emocionant. Amb una resposta immediata i una tracció precisa, aquest Mustang no només es veu bé, també sona i es mou com una bèstia.
+
+A dins, el luxe es troba amb la tecnologia: una cabina totalment digital, acabats premium i un sistema d’infotainment que t’envolta amb connectivitat total i una experiència de conducció intuïtiva.
+🌿 Per què escollir el Mustang Verd?
+
+    Color verd exclusiu que transmet força, llibertat i originalitat
+
+    Motor V8 potent amb so muscular icònic
+
+    Llandes negres o de contrast per destacar encara més el color
+
+    Interior esportiu amb acabats personalitzats
+
+    Ideal per a conductors que volen diferenciar-se i dominar
+    </p>
+    <p>
+      El Mustang verd 2025 no és per a tothom. És per a aquells que volen conduir una llegenda... amb un estil que gira caps.
+
+Ford Mustang 2025 Verd – Més que un cotxe, una actitud.
+    </p>
+
+    <a class="btn-retorn" href="index.html">← Tornar a l'inici</a>
+  </section>
+
+  <footer>
+    <p><strong>© 2025 SpeedGear. Tots els drets reservats.</strong></p>
+  </footer>
+
+  <script>
+    const imatges = [
+      'img/Fordmustang.png',
+      'img/FordMustang2.png',
+      'img/FordMustang3.png',
+      'img/FordMustang4.png',
+      'img/FordMustang5.png'  
+      ];
+    let index = 0;
+    function canviarImatge(direccio) {
+      index = (index + direccio + imatges.length) % imatges.length;
+      document.getElementById('imatgeCotxe').src = imatges[index];
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bugatti Mistral - SpeedGear</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"/>
+  <style>
+    .cotxe-detall {
+      max-width: 1000px;
+      margin: 3rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+      color: black; /* texto negro */
+    }
+
+    .img-slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .img-slider-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 10;
+    }
+
+    .arrow:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    .cotxe-detall h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cotxe-detall p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .btn-retorn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: #6a1b9a;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-retorn:hover {
+      background: #4a1371;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SpeedGear</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inici</a></li>
+        <li><a href="qui-som.html">Qui Som</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cotxe-detall">
+    <div class="img-slider-container">
+      <button class="arrow left" onclick="canviarImatge(-1)">‹</button>
+      <img id="imatgeCotxe" src="img/bugattiN.png" alt="Bugatti Chiron">
+      <button class="arrow right" onclick="canviarImatge(1)">›</button>
+    </div>
+
+    <h2>Bugatti Mistral – La última joya de Bugatti</h2>
+    <p><strong>Preu:</strong> 2.400.000,00 €</p>
+    <p>
+     El Bugatti Mistral és una obra mestra de l’enginyeria i el disseny. Amb una estètica impressionant, aquest supercotxe manté l’herència de Bugatti, però incorpora tecnologies d’avantguarda que el posicionen com un dels cotxes més potents i sofisticats del món. El Mistral pren el seu nom de la brisa que bufa al sud de França, un homenatge a l’esportivitat i la velocitat.
+
+Bajo el capó, el Bugatti Mistral presenta un motor W16 de 8.0 litres, amb quatre turbos que desenvolupen una potència brutal de més de 1.500 CV, proporcionant una acceleració brutal i una velocitat màxima que desafia qualsevol límit conegut. A l’interior, la perfecció continua: materials de primera qualitat com la fusta, el cuir i la fibra de carboni es combinen per crear un ambient luxós i ultra modern.
+
+Aquest Mistral està dissenyat per aquells que volen el màxim rendiment i elegància, amb una aerodinàmica millorada que li permet assolir velocitats extremes amb una estabilitat exemplar. Cada detall ha estat pensat per oferir una experiència de conducció incomparables, amb un sistema de suspensió activa i un control total sobre la carretera, ja sigui en circuit o en carretera oberta.
+
+🔧 Característiques destacades:
+
+    Motor W16 de 8.0L amb 1.500 CV
+
+    Aceleració de 0 a 100 km/h en menys de 2.5 segons
+
+    Velocitat màxima superior a 400 km/h
+
+    Disseny exterior de fibra de carboni per una aerodinàmica perfecta
+
+    Interior exclusiu amb materials premium (pell, fusta i fibra de carboni)
+
+    Tecnologia d'avantguarda amb un sistema infotainment d’última generació
+
+Amb el Bugatti Mistral, Bugatti ha creat un vehicle que no només supera límits de velocitat, sinó que també redefineix el concepte de luxe i potència. Bugatti Mistral – El poder de la velocitat, l’elegància i la perfecció.
+    </p>
+
+    <a class="btn-retorn" href="index.html">← Tornar a l'inici</a>
+  </section>
+
+  <footer>
+    <p><strong>© 2025 SpeedGear. Tots els drets reservats.</strong></p>
+  </footer>
+
+  <script>
+    const imatges = [
+      'img/bugattiN1.png',
+      'img/bugattiN2.png',
+      'img/bugattiN3.png',
+      'img/bugattiN4.png',
+      'img/bugattiN5.png',
+       
+      ];
+    let index = 0;
+    function canviarImatge(direccio) {
+      index = (index + direccio + imatges.length) % imatges.length;
+      document.getElementById('imatgeCotxe').src = imatges[index];
+    }
+  </script>
+</body>
+</html>

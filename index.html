@@ -22,6 +22,52 @@
     .slider-bolide, .slider-mistral {
       position: relative;
     }
+
+    /* Definir la animación RGB con varios colores */
+    @keyframes cambioColor {
+      0% {
+        color: rgb(34, 193, 195); /* Verde claro */
+      }
+      10% {
+        color: rgb(255, 87, 34); /* Naranja */
+      }
+      20% {
+        color: rgb(0, 255, 255); /* Cyan */
+      }
+      30% {
+        color: rgb(255, 0, 255); /* Magenta */
+      }
+      40% {
+        color: rgb(255, 0, 0); /* Rojo */
+      }
+      50% {
+        color: rgb(0, 255, 0); /* Verde */
+      }
+      60% {
+        color: rgb(0, 0, 255); /* Azul */
+      }
+      70% {
+        color: rgb(138, 43, 226); /* Azul oscuro */
+      }
+      80% {
+        color: rgb(255, 105, 180); /* Rosa */
+      }
+      90% {
+        color: rgb(240, 128, 128); /* Rojo claro */
+      }
+      100% {
+        color: rgb(34, 193, 195); /* Verde claro */
+      }
+    }
+
+    /* Estilo para el nombre y el precio */
+    .car-name, .car-price {
+      animation: cambioColor 5s infinite; /* Cambiar color de forma infinita */
+    }
+
+    .car-price {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -43,56 +89,65 @@
   <section class="cotxes">
     <h2>Ford</h2>
     <article>
-      <div class="imatge-cotxe">
-        <img src="img/cotxe1.jpg.png" alt="Ford Mustang" class="img-slide">
-      </div>
-      <h3>Ford Mustang 2025</h3>
-      <p>Preu: 89.950,00 €</p>
+      <a href="FordMustang.html">
+        <div class="imatge-cotxe">
+          <img src="img/cotxe1.png" alt="Ford Mustang" class="img-slide">
+        </div>
+        <h3 class="car-name">Ford Mustang 2025</h3>
+        <p class="car-price">Preu: 89.950,00 €</p>
+      </a>
     </article>
 
     <article>
-      <div class="imatge-cotxe">
-        <img src="img/FordMustang.png" alt="Ford Mustang Edició Especial" class="img-slide">
-      </div>
-      <h3>Ford Mustang 2025</h3>
-      <p>Preu: 125.999,00 € - 25.000 km</p>
+      <a href="FordMustangGreen.html">
+        <div class="imatge-cotxe">
+          <img src="img/FordMustang.png" alt="Ford Mustang Edició Especial" class="img-slide">
+        </div>
+        <h3 class="car-name">Ford Mustang 2025</h3>
+        <p class="car-price">Preu: 125.999,00 €</p>
+      </a>
     </article>
 
     <article>
-      <div class="imatge-cotxe">
-        <img src="img/azul1.png" alt="Ford Mustang Blau" class="img-slide">
-      </div>
-      <h3>Ford Mustang Blau</h3>
-      <p>Preu: 90.000,00 €</p>
+      <a href="FordMustangBlue.html">
+        <div class="imatge-cotxe">
+          <img src="img/azul1.png" alt="Ford Mustang Blau" class="img-slide">
+        </div>
+        <h3 class="car-name">Ford Mustang Blau</h3>
+        <p class="car-price">Preu: 90.000,00 €</p>
+      </a>
     </article>
   </section>
 
   <section class="cotxes">
     <h2>Bugatti</h2>
     <article>
-      <div class="imatge-cotxe">
-        <img src="img/bugatti3.png" alt="Bugatti Chiron" class="img-slide">
-      </div>
-      <h3>Bugatti Chiron</h3>
-      <p>Preu: 2.400.000,00 €</p>
+      <!-- Añadido enlace a Bugatti Chiron -->
+      <a href="bugattichiron.html">
+        <div class="imatge-cotxe">
+          <img src="img/bugatti3.png" alt="Bugatti Chiron" class="img-slide">
+        </div>
+        <h3 class="car-name">Bugatti Chiron</h3>
+        <p class="car-price">Preu: 2.400.000,00 €</p>
+      </a>
     </article>
 
     <article>
-      <!-- Slider Bugatti Mistral -->
+     <a href="Bugatti Mistral.html">
       <div class="imatge-cotxe slider-mistral">
         <img src="img/bugattiN.png" alt="Bugatti Mistral" class="img-slide">
       </div>
-      <h3>Bugatti Mistral</h3>
-      <p>Preu: 1.950.000,00 €</p>
+      <h3 class="car-name">Bugatti Mistral</h3>
+      <p class="car-price">Preu: 1.950.000,00 €</p>
     </article>
 
     <article>
-      <!-- Slider Bugatti Bolide -->
+      <a href="Bugatti Bolide.html">
       <div class="imatge-cotxe slider-bolide">
         <img src="img/bugattiB.png" alt="Bugatti Bolide" class="img-slide">
       </div>
-      <h3>Bugatti Bolide</h3>
-      <p>Preu: 4.000.000,00 €</p>
+      <h3 class="car-name">Bugatti Bolide</h3>
+      <p class="car-price">Preu: 4.000.000,00 €</p>
     </article>
   </section>
 
@@ -102,24 +157,24 @@
       <div class="imatge-cotxe">
         <img src="img/lamboA.jpg" alt="Lamborghini Aventador" class="img-slide">
       </div>
-      <h3>Lamborghini Aventador</h3>
-      <p>Preu: 420.000,00 €</p>
+      <h3 class="car-name">Lamborghini Aventador</h3>
+      <p class="car-price">Preu: 420.000,00 €</p>
     </article>
 
     <article>
       <div class="imatge-cotxe">
         <img src="img/lamboB.jpeg" alt="Lamborghini Huracán" class="img-slide">
       </div>
-      <h3>Lamborghini Huracán</h3>
-      <p>Preu: 290.000,00 €</p>
+      <h3 class="car-name">Lamborghini Huracán</h3>
+      <p class="car-price">Preu: 290.000,00 €</p>
     </article>
 
     <article>
       <div class="imatge-cotxe">
         <img src="img/lamboU.jpg" alt="Lamborghini Urus" class="img-slide">
       </div>
-      <h3>Lamborghini Urus</h3>
-      <p>Preu: 250.000,00 €</p>
+      <h3 class="car-name">Lamborghini Urus</h3>
+      <p class="car-price">Preu: 250.000,00 €</p>
     </article>
   </section>
 
@@ -130,3 +185,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+

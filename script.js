@@ -3,7 +3,7 @@ console.log("Benvingut/da a SpeedGear!");
 const galeries = [
   // Ford Mustang 1
   [
-    'img/cotxe1.jpg.png', 'img/cotxe2.jpg.png', 'img/cotxe3.png',
+    'img/cotxe1.png', 'img/cotxe2.png', 'img/cotxe3.png',
     'img/cotxe4.png', 'img/cotxe6.png', 'img/cotxe7.png'
   ],
   // Ford Mustang 2

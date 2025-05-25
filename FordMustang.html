@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ford Mustang Black - SpeedGear</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet"/>
+  <style>
+    .cotxe-detall {
+      max-width: 1000px;
+      margin: 3rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      position: relative;
+      color: black; /* texto negro */
+    }
+
+    .img-slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .img-slider-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 10;
+    }
+
+    .arrow:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    .cotxe-detall h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cotxe-detall p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .btn-retorn {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      background: #6a1b9a;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn-retorn:hover {
+      background: #4a1371;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SpeedGear</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inici</a></li>
+        <li><a href="qui-som.html">Qui Som</a></li>
+        <li><a href="contacte.html">Contacte</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="cotxe-detall">
+    <div class="img-slider-container">
+      <button class="arrow left" onclick="canviarImatge(-1)">‹</button>
+      <img id="imatgeCotxe" src="img/cotxe1.png" alt="Bugatti Chiron">
+      <button class="arrow right" onclick="canviarImatge(1)">›</button>
+    </div>
+
+    <h2>🐎 Ford Mustang 2025 – Pura potència i elegància americana</h2>
+    <p><strong>Preu:</strong> 2.400.000,00 €</p>
+    <p>
+      El Ford Mustang 2025 redefineix la llegenda dels muscle cars amb un disseny renovat, tecnologia d’avantguarda i una experiència de conducció inconfusible. Aquesta nova generació manté l’essència clàssica que ha convertit el Mustang en un icona global, però amb línies més afilades, una aerodinàmica millorada i una actitud més agressiva.
+
+Sota el capó, el Mustang 2025 ofereix motors potents com el V8 5.0L Coyote, capaç de desenvolupar més de 480 CV, combinat amb una resposta immediata i un rugit inconfusible. Tant si esculls la versió manual com l’automàtica de 10 velocitats, la conducció és precisa, ferotge i emocionant.
+
+A l’interior, tecnologia i comoditat es troben: una pantalla digital corba de 13,2 polzades, sistema SYNC 4 amb compatibilitat per a Apple CarPlay i Android Auto, i opcions de personalització per fer teu cada detall. Tot embolcallat amb materials d’alta qualitat i un disseny modern que fa honor al seu llegat.
+🔧 Característiques destacades:
+
+    Motor V8 5.0L de fins a 486 CV
+
+    Acceleració de 0 a 100 km/h en menys de 4 segons
+
+    Panell digital corb i sistema d’infotainment SYNC 4
+
+    Modes de conducció configurables
+
+    Nou disseny exterior més agressiu i esportiu
+
+    Opcions de sostre rígid o convertible
+    </p>
+    <p>
+     És el Mustang més avançat fins ara, però fidel a la seva ànima rebel.
+Ford Mustang 2025 — No només condueixis, domina la carretera.
+    </p>
+
+    <a class="btn-retorn" href="index.html">← Tornar a l'inici</a>
+  </section>
+
+  <footer>
+    <p><strong>© 2025 SpeedGear. Tots els drets reservats.</strong></p>
+  </footer>
+
+  <script>
+    const imatges = [
+      'img/cotxe1.png',
+      'img/cotxe2.png',
+      'img/cotxe3.png',
+      'img/cotxe4.png',
+      'img/cotxe6.png',
+      'img/cotxe7.png',
+      'img/cotxe8.png'  
+      ];
+    let index = 0;
+    function canviarImatge(direccio) {
+      index = (index + direccio + imatges.length) % imatges.length;
+      document.getElementById('imatgeCotxe').src = imatges[index];
+    }
+  </script>
+</body>
+</html>
